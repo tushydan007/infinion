@@ -5,6 +5,7 @@ import type { User } from "../redux/features/user/userSlice";
 import UserCard from "./Usercard";
 import UserModal from "./UserModal";
 import AddUserForm from "./AddUserForm";
+import { LoaderIcon } from "react-hot-toast";
 
 const UserList = () => {
   const dispatch = useAppDispatch();
@@ -26,13 +27,7 @@ const UserList = () => {
   );
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen bg-gray-50 dark:bg-gray-900">
-        <div className="text-gray-700 dark:text-gray-100 text-xl animate-pulse">
-          Loading users...
-        </div>
-      </div>
-    );
+    return <LoaderIcon />;
   }
 
   if (error) {
