@@ -34,6 +34,7 @@ A responsive, dark mode user directory application built with **React**, **TypeS
 - React Hook Form + Zod
 - React Window + AutoSizer
 - Axios
+- React-Hot-Toast
 
 ---
 

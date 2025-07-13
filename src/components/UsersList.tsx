@@ -4,6 +4,7 @@ import { fetchUsers } from "../redux/features/user/userSlice";
 import type { User } from "../redux/features/user/userSlice";
 import UserCard from "./Usercard";
 import UserModal from "./UserModal";
+import AddUserForm from "./AddUserForm";
 
 const UserList = () => {
   const dispatch = useAppDispatch();
@@ -53,6 +54,7 @@ const UserList = () => {
       <h1 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-6">
         List of Users in our Database
       </h1>
+      <AddUserForm />
 
       {/* Search Input */}
       <div className="flex justify-center mb-8">
