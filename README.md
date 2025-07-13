@@ -1,69 +1,46 @@
-# React + TypeScript + Vite
+## User Directory App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive, dark mode user directory application built with **React**, **TypeScript**, **Redux Toolkit**, and **Zod**. This app fetches users from a remote API, displays them in a virtualized grid, and supports search filtering, modals for user details, and a form to add new users.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Demo
 
-## Expanding the ESLint configuration
+[Live Preview](https://infinion-orpin.vercel.app)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## ✨ Features
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- ✅ Responsive UI (Figma design)
+- 🌙 Dark Mode
+- 🔎 Search Filtering
+- ⚡ Virtualized User Grid (with react-window)
+- 👤 User Detail Modal
+- 🧾 Add User Form with Validation (React Hook Form + Zod)
+- 🔁 API Integration (GET, POST)
+- ⚙️ Redux Toolkit for state management
+- ❌ Error + Loading States
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+##  Tech Stack
+
+- React + TypeScript
+- Tailwind CSS
+- Redux Toolkit
+- React Hook Form + Zod
+- React Window + AutoSizer
+- Axios
+
+---
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/tushydan007/infinion
+cd infinion
+npm install
+npm run dev
