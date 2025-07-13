@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useAppDispatch } from "../redux/reduxHooks";
+import type { User } from "../redux/features/user/userSlice";
 import { fetchUsers } from "../redux/features/user/userSlice";
 
 const userSchema = z.object({
@@ -36,13 +37,13 @@ const AddUserForm: React.FC = () => {
   const onSubmit = async (data: UserFormData) => {
     try {
       const response = await axios.post(
-        "https://687124747ca4d06b34b97d3d.mockapi.io/api/userId",
-        data
+        "https://687124747ca4d06b34b97d3d.mockapi.io/api/userId"
       );
       toast.success("User added successfully!");
       setStatus("success");
       reset();
-      dispatch(fetchUsers()); // ✅ Refetch user list
+      dispatch(fetchUsers()); // Refetch user list
+      console.log(response.data);
     } catch (err) {
       toast.error("Failed to add user.");
       setStatus("error");
