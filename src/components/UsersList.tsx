@@ -8,6 +8,7 @@ import { LoaderIcon } from "react-hot-toast";
 import NavBar from "./NavBar";
 import AddNew from "./AddNew";
 import SearchDiv from "./SearchDiv";
+import SideBarOptions from "./SideBarOptions";
 
 const UserList = () => {
   const dispatch = useAppDispatch();
@@ -48,10 +49,21 @@ const UserList = () => {
 
   return (
     <div className="flex">
-      <div className=" hidden md:flex flex-col h-screen bg-[#1E1E1E] w-[233px]"></div>
-      <div className="bg-gray-50 dark:bg-[#121212] min-h-screen px-10 py-6 w-full">
+      {/* Sidebar */}
+      <div className="hidden md:fixed md:flex flex-col h-screen bg-[#1E1E1E] w-[233px] left-0 top-0 z-10">
+        <h1 className="mt-7 text-left ml-10 font-normal text-3xl bg-gradient-to-r from-[#3B82F6] to-[#9333EA] text-transparent bg-clip-text font-['kavoon']">
+          useID
+        </h1>
+        <div>
+          <SideBarOptions />
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="bg-gray-50 dark:bg-[#121212] min-h-screen px-10 py-6 w-full md:ml-[233px]">
         <NavBar />
         <AddNew />
+
         {/* Search Input */}
         <SearchDiv
           type="text"
@@ -60,7 +72,7 @@ const UserList = () => {
         />
 
         {/* User Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 mt-10 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {filteredUsers.length > 0 ? (
             filteredUsers.map((user) => (
               <UserCard

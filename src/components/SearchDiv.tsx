@@ -1,6 +1,7 @@
 import React from "react";
 import SearchInput from "./SearchInput";
 import options from "../assets/options.png";
+import apps from "../assets/apps.png";
 
 type Props = {
   value: string;
@@ -10,13 +11,15 @@ type Props = {
 
 const SearchDiv = ({ value, type, onChange }: Props) => {
   return (
-    <div className="w-full bg-[#1E1E1E] rounded-lg flex justify-between items-center my-10">
+    <div className="w-full bg-[#1E1E1E] rounded-lg mt-10 flex justify-between items-center pr-4 h-16">
       <SearchInput type={type} value={value} onChange={onChange} />
-      <div className="flex gap-[14px] max-w-[85px]  ">
-        <div className="w-10 h-10 rounded-lg border-2 border-[#343434]">
-          <img src={options} alt="" />
+      <div className="md:flex gap-[14px] justify-center items-center hidden">
+        <div className="w-10 h-10 rounded-lg">
+          <img src={options} alt="options" />
         </div>
-        <div>4</div>
+        <div className="w-10 h-10 rounded-lg">
+          <img src={apps} alt="apps" />
+        </div>
       </div>
     </div>
   );

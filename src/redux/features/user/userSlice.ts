@@ -8,6 +8,7 @@ export type User = {
   email: string;
   phone: string;
   location: string;
+  dob?: string
 };
 
 interface UserState {

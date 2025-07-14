@@ -9,14 +9,18 @@ type Props = {
 const SearchInput = ({ value, type, onChange }: Props) => {
   return (
     <div className="flex w-full pl-6 gap-3 items-center">
-      <img src={searchIcon} alt="search" className="w-[18px] h-[18px]" />
+      <img
+        src={searchIcon}
+        alt="search"
+        className="w-[18px] h-[18px] hidden md:block"
+      />
       <div className="flex justify-center items-center">
         <input
           type={type}
           value={value}
           onChange={onChange}
           placeholder="Search users by name..."
-          className="w-full placeholder-[#838383] max-w-md py-2 px-4 text-gray-300 dark:border-gray-600 bg-white dark:bg-transparent outline-none"
+          className="w-full placeholder-[#838383] max-w-md py-2 text-gray-300 dark:border-gray-600 bg-white dark:bg-transparent outline-none"
         />
       </div>
     </div>

@@ -1,12 +1,16 @@
 import bell from "../assets/Group.png";
 import avatar from "../assets/avatar.jpg";
 import searchIcon from "../assets/search.png";
+import hamburger from "../assets/hamburger.png";
 
 const NavBar = () => {
   return (
     <nav>
       <div className="flex justify-between items-center bg-transparent">
-        <div className="bg-[#181818] rounded-full gap-[10px] w-[298px] h-[44px] flex justify-start items-center pl-6">
+        <div className="block md:hidden">
+          <img src={hamburger} alt="hamburger-menu-icon" />
+        </div>
+        <div className="bg-[#181818] hidden rounded-full gap-[10px] w-[298px] h-[44px] md:flex justify-start items-center pl-6">
           <img src={searchIcon} alt="search" />
           <input
             type="text"
@@ -17,7 +21,7 @@ const NavBar = () => {
           />
         </div>
 
-        <div className="flex gap-4 justify-center items-center">
+        <div className="md:flex hidden gap-4 justify-center items-center">
           <div className="relative w-10 h-10 rounded-full bg-[#181818] flex justify-center items-center cursor-pointer">
             <img
               src={bell}
