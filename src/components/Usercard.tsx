@@ -1,5 +1,3 @@
-
-
 type UserCardProps = {
   avatar: string;
   fullName: string;
@@ -7,16 +5,11 @@ type UserCardProps = {
   onClick: () => void;
 };
 
-const UserCard = ({
-  avatar,
-  fullName,
-  email,
-  onClick,
-}: UserCardProps) => {
+const UserCard = ({ avatar, fullName, email, onClick }: UserCardProps) => {
   return (
     <div
       onClick={onClick}
-      className="cursor-pointer bg-white dark:bg-gray-800 shadow-md rounded-2xl p-4 transition hover:shadow-lg hover:scale-[1.01] duration-200 w-full max-w-sm mx-auto"
+      className="cursor-pointer bg-white dark:bg-[#1E1E1E] shadow-md rounded-2xl p-4 transition hover:shadow-lg hover:scale-[1.01] duration-200 w-full max-w-sm mx-auto"
     >
       <div className="flex flex-col items-center text-center">
         <img

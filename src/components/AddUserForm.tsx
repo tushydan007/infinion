@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -20,14 +20,15 @@ const userSchema = z.object({
 
 type UserFormData = z.infer<typeof userSchema>;
 
-const AddUserForm: React.FC = () => {
+const AddUserForm = () => {
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isValid },
   } = useForm<UserFormData>({
     resolver: zodResolver(userSchema),
+    // mode: "onChange",
   });
 
   const [status, setStatus] = useState<"success" | "error" | null>(null);
@@ -52,9 +53,9 @@ const AddUserForm: React.FC = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg max-w-md mx-auto mb-10">
-      <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4">
-        Add New User
+    <div className="bg-white dark:bg-[#121212] p-6 rounded-[16px] shadow-lg max-w-[480px] mx-auto">
+      <h2 className="text-lg font-bold text-gray-800 dark:text-white mb-4">
+        Enter User Details
       </h2>
 
       {/* Success / Error Banner */}
@@ -77,7 +78,8 @@ const AddUserForm: React.FC = () => {
           <input
             type="text"
             {...register("name")}
-            className="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
+            placeholder="E.g John"
+            className="w-full px-3 py-2 rounded border border-gray-300 bg-white dark:bg-[#1E1E1E] text-gray-900 dark:text-white"
           />
           {errors.name && (
             <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
@@ -90,8 +92,9 @@ const AddUserForm: React.FC = () => {
           </label>
           <input
             type="text"
+            placeholder="E.g Boston, USA"
             {...register("location")}
-            className="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
+            className="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-[#1E1E1E] text-gray-900 dark:text-white"
           />
           {errors.location && (
             <p className="text-red-500 text-sm mt-1">
@@ -106,8 +109,9 @@ const AddUserForm: React.FC = () => {
           </label>
           <input
             type="date"
+            placeholder="E.g 20/O4/1945"
             {...register("dob")}
-            className="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
+            className="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-[#1E1E1E] text-gray-900 dark:text-white"
           />
           {errors.dob && (
             <p className="text-red-500 text-sm mt-1">{errors.dob.message}</p>
@@ -116,10 +120,14 @@ const AddUserForm: React.FC = () => {
 
         <button
           type="submit"
-          disabled={isSubmitting}
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+          disabled={!isValid || isSubmitting}
+          className={`w-full py-2 rounded font-medium transition ${
+            !isValid || isSubmitting
+              ? "bg-[#3c3c3c] text-[#898989] cursor-not-allowed"
+              : "bg-white text-black cursor-pointer"
+          }`}
         >
-          {isSubmitting ? "Submitting..." : "Add User"}
+          {isSubmitting ? "Submitting..." : "Save"}
         </button>
       </form>
     </div>
