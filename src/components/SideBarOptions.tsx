@@ -15,7 +15,7 @@ const options = [
 ];
 
 const SideBarOptions = () => {
-  const [activeLink, setActiveLink] = useState("Dashboard");
+  const [activeLink, setActiveLink] = useState("");
 
   return (
     <div className="text-[#B3B4B3] h-[549.96px] mt-[46.85px] space-y-10">
