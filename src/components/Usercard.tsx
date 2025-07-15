@@ -15,6 +15,7 @@ const UserCard = ({ avatar, fullName, email, onClick }: UserCardProps) => {
         <img
           src={avatar}
           alt={`${fullName}'s avatar`}
+          loading="lazy"
           className="w-24 h-24 rounded-full object-cover mb-4 border-4 border-gray-200 dark:border-gray-700"
         />
         <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
