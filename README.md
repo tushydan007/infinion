@@ -8,31 +8,29 @@ A responsive, dark mode user directory application built with **React**, **TypeS
 
 [Live Preview](https://infinion-orpin.vercel.app)
 
-
-
 ---
 
 ## ✨ Features
 
-- ✅ Responsive UI (Figma design)
-- 🌙 Dark Mode
-- 🔎 Search Filtering
-- ⚡ Virtualized User Grid (with react-window)
-- 👤 User Detail Modal
-- 🧾 Add User Form with Validation (React Hook Form + Zod)
-- 🔁 API Integration (GET, POST)
-- ⚙️ Redux Toolkit for state management
-- ❌ Error + Loading States
+-  Responsive UI (Figma design)
+-  Dark Mode
+-  Search Filtering
+-  Virtualized User Grid (with react-window)
+-  User Detail Modal
+-  Add User Form with Validation (React Hook Form + Zod)
+-  API Integration (GET, POST)
+-  Redux Toolkit for state management
+-  Error + Loading States
 
 ---
 
-##  Tech Stack
+## Tech Stack
 
 - React + TypeScript
 - Tailwind CSS
 - Redux Toolkit
 - React Hook Form + Zod
-- React Window + AutoSizer
+- Lazy Loading using the React suspense component and lazy function from React
 - Axios
 - React-Hot-Toast
 
@@ -45,3 +43,4 @@ git clone https://github.com/tushydan007/infinion
 cd infinion
 npm install
 npm run dev
+```
