@@ -60,7 +60,7 @@ const AddUserForm = () => {
         </h2>
 
         {/* Success / Error Banner */}
-        {status === "success" && (
+        {/* {status === "success" && (
           <div className="bg-green-100 text-green-700 p-2 rounded mb-4 text-sm">
             ✅ User has been added successfully!
           </div>
@@ -69,7 +69,7 @@ const AddUserForm = () => {
           <div className="bg-red-100 text-red-700 p-2 rounded mb-4 text-sm">
             ❌ Failed to add user. Try again.
           </div>
-        )}
+        )} */}
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
