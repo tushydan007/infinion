@@ -105,7 +105,7 @@ const UserList = () => {
           )}
           {!searchTerm && filteredUsersOrListOfUsers.length === 0 && (
             <p className="text-center text-3xl text-white pt-36">
-              There are no data in the database
+              There are no Users in the database
             </p>
           )}
         </div>
