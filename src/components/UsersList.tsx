@@ -25,12 +25,27 @@ const UserList = () => {
     return () => window.removeEventListener("keydown", handleEsc);
   }, [dispatch]);
 
-  const filteredUsers = users.filter((user) =>
-    user.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredUsersOrListOfUsers = searchTerm
+    ? users.filter((user) =>
+        user.name.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    : users;
 
   if (loading) {
-    return <LoaderIcon />;
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 dark:bg-[#1E1E1E]">
+        <LoaderIcon
+          style={{
+            width: "100px",
+            height: "100px",
+            background: "linear-gradient(45deg, red, green, blue)",
+          }}
+        />
+        <h3 className="font-[kavoon] mt-7 text-2xl bg-gradient-to-r from-[#3B82F6] to-[#9333EA] text-transparent bg-clip-text">
+          Loading users...
+        </h3>
+      </div>
+    );
   }
 
   if (error) {
@@ -73,8 +88,13 @@ const UserList = () => {
 
         {/* User Cards */}
         <div className="grid grid-cols-1 mt-10 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {filteredUsers.length > 0 ? (
-            filteredUsers.map((user) => (
+          {filteredUsersOrListOfUsers.length === 0 && (
+            <p className="text-center text-3xl text-white pt-36">
+              There are no data in the database
+            </p>
+          )}
+          {filteredUsersOrListOfUsers.length > 0 ? (
+            filteredUsersOrListOfUsers.map((user) => (
               <UserCard
                 key={user.id}
                 avatar={user.avatar}
