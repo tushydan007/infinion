@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -31,7 +31,7 @@ const AddUserForm = () => {
     // mode: "onChange",
   });
 
-  const [status, setStatus] = useState<"success" | "error" | null>(null);
+  // const [status, setStatus] = useState<"success" | "error" | null>(null);
   const dispatch = useAppDispatch();
 
   const onSubmit = async (data: UserFormData) => {
@@ -41,13 +41,13 @@ const AddUserForm = () => {
         data
       );
       toast.success("User added successfully!");
-      setStatus("success");
+      // setStatus("success");
       reset();
       dispatch(fetchUsers()); // Refetch user list
       console.log(response.data);
     } catch (err) {
       toast.error("Failed to add user.");
-      setStatus("error");
+      // setStatus("error");
       console.error(err);
     }
   };
@@ -60,7 +60,7 @@ const AddUserForm = () => {
         </h2>
 
         {/* Success / Error Banner */}
-        {status === "success" && (
+        {/* {status === "success" && (
           <div className="bg-green-100 text-green-700 p-2 rounded mb-4 text-sm">
             ✅ User has been added successfully!
           </div>
@@ -69,7 +69,7 @@ const AddUserForm = () => {
           <div className="bg-red-100 text-red-700 p-2 rounded mb-4 text-sm">
             ❌ Failed to add user. Try again.
           </div>
-        )}
+        )} */}
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
