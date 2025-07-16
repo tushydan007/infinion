@@ -88,11 +88,6 @@ const UserList = () => {
 
         {/* User Cards */}
         <div className="grid grid-cols-1 mt-10 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {filteredUsersOrListOfUsers.length === 0 && (
-            <p className="text-center text-3xl text-white pt-36">
-              There are no data in the database
-            </p>
-          )}
           {filteredUsersOrListOfUsers.length > 0 ? (
             filteredUsersOrListOfUsers.map((user) => (
               <UserCard
@@ -106,6 +101,11 @@ const UserList = () => {
           ) : (
             <p className="col-span-full text-center text-gray-500 dark:text-gray-400">
               No users match your search.
+            </p>
+          )}
+          {!searchTerm && filteredUsersOrListOfUsers.length === 0 && (
+            <p className="text-center text-3xl text-white pt-36">
+              There are no data in the database
             </p>
           )}
         </div>
