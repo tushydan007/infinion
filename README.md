@@ -30,7 +30,7 @@ A responsive, dark mode user directory application built with **React**, **TypeS
 - Tailwind CSS
 - Redux Toolkit
 - React Hook Form + Zod
-- Lazy Loading using the React suspense component and lazy function from React
+- Virtualization with the React window library
 - Axios
 - React-Hot-Toast
 
